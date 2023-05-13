@@ -11,7 +11,9 @@ const PriceDetail = styled.div`
   }
 `;
 
-export default function () {
+/*Cart-Items */
+
+export default function CartItems() {
   let CartItem = useSelector((state) => state.cart);
   let totalItem = useSelector((state) => state.totalCart);
   let totalPrice = CartItem.reduce((total, item) => {

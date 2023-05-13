@@ -3,7 +3,8 @@ import ProductItem from "./ProductItem";
 import { useSelector } from "react-redux";
 import Sort from "./Sort";
 
-export default function ProductItemList({}) {
+/*this includes the products */
+export default function ProductItemList() {
   const data = useSelector((state) => state.products);
   if (data.length === 0) {
     return (

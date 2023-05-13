@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+
 /*Navbar */
 export default function Nav() {
   const navigate = useNavigate();
   let total = useSelector((state) => state.totalCart);
-return (
+
+  return (
     <nav
       className="navbar navbar-expand-lg p-4 align-items-center"
       style={style.nav}
     >
       <div className="container-fluid">
-        <a className="navbar-brand fs-3" href="#" style={style.navHead}>
+        <a className="navbar-brand fs-3" href="#!" style={style.navHead}>
           Bazaar
         </a>
         <button
@@ -29,7 +31,7 @@ return (
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link to="/" className="nav-link active text-light" href="#">
+              <Link to="/" className="nav-link active text-light">
                 Products
               </Link>
             </li>
@@ -44,8 +46,8 @@ return (
               src="https://cdn-icons-png.flaticon.com/512/4290/4290854.png"
               alt="error"
               width={"40rem"}
-            onClick={() => navigate("/cart")}
-            style={{cursor:"pointer"}}
+              onClick={() => navigate("/cart")}
+              style={{ cursor: "pointer" }}
             />
             {total ? (
               <p
@@ -73,6 +75,7 @@ return (
     </nav>
   );
 }
+
 const style = {
   nav: {
     backgroundColor: "var(--nav)",
@@ -82,4 +85,3 @@ const style = {
     color: "#f47289",
   },
 };
-// #9375b7

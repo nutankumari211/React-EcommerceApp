@@ -10,10 +10,6 @@ import { ToastContainer } from "react-toastify";
 import { showToastMessage } from "../Notification/notify";
 import "react-toastify/dist/ReactToastify.css";
 
-
-/*The code defines a React component called ProductItem that represents an item in a product list. It displays the item's thumbnail,
- title, price, rating, and description. It also provides functionality for editing, saving, deleting, 
-adding to cart, and navigating to the product details page. The component uses Redux for state management and React Router for navigation. */
 export default function ProductItem({ item }) {
   const [addedItem, setaddedItem] = useState(true);
   const [title, settitle] = useState(item.title);
@@ -49,7 +45,7 @@ export default function ProductItem({ item }) {
   // making delete request
   function handleDelelteProduct(item) {
     let url = `https://my-json-server.typicode.com/jaiswalaryan/data/products/${item.id}`;
-    let result = customFetch(url, { method: "DELETE" });
+    customFetch(url, { method: "DELETE" });
 
     let index = products.indexOf(item);
     products.splice(index, 1);
@@ -64,7 +60,7 @@ export default function ProductItem({ item }) {
   // making put request after click on save button of edit
   function handleSave(item) {
     let url = `https://my-json-server.typicode.com/jaiswalaryan/data/products/${item.id}`;
-    let result = customFetch(url, {
+    customFetch(url, {
       body: {
         ...item,
         title,
@@ -74,13 +70,12 @@ export default function ProductItem({ item }) {
         edit: true,
       },
       method: "PUT",
-    });
-    result.then((data) => {
+    }).then((data) => {
       let index = products.indexOf(item);
       products[index] = data;
 
       dispatchProduct(addproducts([...products]));
-      showToastMessage("Edit suceesful", "success");
+      showToastMessage("Edit successful", "success");
     });
   }
   return (
@@ -104,6 +99,7 @@ export default function ProductItem({ item }) {
               type="text"
               value={title}
               className="w-50"
+
               onChange={(e) => settitle(e.target.value)}
             ></input>
           )}
