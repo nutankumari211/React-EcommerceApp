@@ -1,4 +1,5 @@
-# HOSTED LINK -> fascinating-strudel-6242f0.netlify.app
+# HOSTED LINK 
+fascinating-strudel-6242f0.netlify.app
 
 
 # HOW TO RUN THE PROJECT
